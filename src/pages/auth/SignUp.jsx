@@ -89,11 +89,11 @@ const SignUp = () => {
 
   return (
     <div className="bg-[#300080] h-screen flex justify-center items-center font-poppins text-white  ">
-      <div className="w-[430px] mx-1  bg-[#200098]  px-4 py-1 flex flex-col justify-center shadow-black shadow-lg relative">
+      <div className="lg:w-[430px] md:w-[430px] min-w-[300px] mx-1  bg-[#200098]  px-4 py-1 flex flex-col justify-center shadow-black shadow-lg relative">
         <img
           src={cover}
           alt="Image"
-          className="absolute top-2 right-1 w-[420px] opacity-20"
+          className="absolute top-2 right-1 lg:w-[420px] md:w-[420px] min-w-[300px] opacity-20"
         />
         <form className="z-0" onSubmit={handleSubmit(onSubmit)}>
           <img src={Logo} alt="Logo" className="w-full " />
@@ -132,11 +132,11 @@ const SignUp = () => {
                 border: "none",
                 textAlign: "",
                 fontSize: "16px",
-                marginLeft: "34px",
+                marginLeft: "-2px",
               }}
               placeholder="9999999999"
               buttonStyle={{
-                width: "70px",
+                width: "30px",
                 borderRadius: "8px",
                 marginLeft: "10px",
                 border: "none",

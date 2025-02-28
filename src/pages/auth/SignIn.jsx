@@ -116,11 +116,11 @@ const SignIn = () => {
 
   return (
     <div className="bg-[#300080] h-screen flex justify-center items-center font-poppins text-white">
-      <div className="lg:w-[430px] md:w-[430px] w-[400px] mx-1 bg-[#200098] p-4 flex flex-col justify-center shadow-black shadow-lg relative">
+      <div className="lg:w-[430px] md:w-[430px] min-w-[300px] mx-2 bg-[#200098] p-4 flex flex-col justify-center shadow-black shadow-lg relative">
         <img
           src={cover}
           alt="Image"
-          className="absolute top-2 right-1 lg:w-[420px] md:w-[420px] w-[390px] opacity-20"
+          className="absolute top-2 right-1 lg:w-[420px] md:w-[420px] min-w-[300px]  opacity-20"
         />
         <form className="z-0" onSubmit={handleSendOtp}>
           <img src={Logo} alt="Logo" className="w-full" />
@@ -129,17 +129,17 @@ const SignIn = () => {
             <label htmlFor="phone" className="mx-6">
               Phone <span className="text-red-600">*</span>
             </label>
-            <div className="lg:w-5/6 md:w-5/6 w-full mx-6 lg:px-0 md:px-0 px-3">
+            <div className="lg:w-5/6 md:w-5/6 w-5/6 mx-6">
               <PhoneInput
                 country={"in"}
                 value={phone}
                 onChange={handlePhoneChange}
-                className="w-full py-1  text-black rounded-md shadow-md outline-none bg-white "
+                className="w-full py-1  px-1 text-black rounded-md shadow-md outline-none bg-white "
                 inputStyle={{
                   border: "none",
                   // textAlign: "center",
                   fontSize: "16px",
-                  marginLeft: "4px",
+                  marginLeft: "-4px",
                 }}
                 placeholder="9999999999"
                 buttonStyle={{
