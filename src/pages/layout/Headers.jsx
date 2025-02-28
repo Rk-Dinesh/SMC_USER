@@ -6,8 +6,9 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { API } from "../../Host";
 import axios from "axios";
 import { ThemeContext } from "../../App";
+import { RxHamburgerMenu } from "react-icons/rx";
 
-const Headers = ({ Menus }) => {
+const Headers = ({ Menus,show }) => {
   const navigate = useNavigate();
   const { global, setGlobal } = useContext(ThemeContext);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -57,14 +58,20 @@ const Headers = ({ Menus }) => {
 
   return (
     <div className="flex justify-between items-center px-3 bg-gradient-to-r from-[#110038] to-[#08006B] z-50 fixed w-full">
-      <img src={PMCLogo} alt="SeekMyCourse" className="w-42 h-14" />
+      <div className="flex gap-3 items-center">
 
+      
+      <img src={PMCLogo} alt="SeekMyCourse" className="lg:w-42 lg:h-14 md:w-42 md:h-14 w-40 h-12 mx-1" />
+      {show === 'yes' && (
       <p
         className="text-2xl text-white md:block lg:hidden block"
         onClick={toggleDropdown}
       >
-        Menu
+        <RxHamburgerMenu />
       </p>
+      )}
+
+      </div>
 
       {isDropdownOpen && (
         <div className="absolute right-0 top-14 w-full bg-[#200098] text-white shadow-md lg:hidden md:block block">
@@ -78,7 +85,7 @@ const Headers = ({ Menus }) => {
               </p>
             </div>
           </div>
-          <ul className="flex flex-wrap py-5 ">
+          <ul className="flex flex-wrap py-5 max-h-[600px] overflow-y-auto  ">
             {Menus.map((menu, index) => (
               <NavLink to={menu.to} onClick={menu.onClick} key={index}>
                 <li

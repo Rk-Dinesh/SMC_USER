@@ -251,6 +251,7 @@ const Content = () => {
         setMedia(mSubTopic.image);
       }
     }
+    setIsSidebarOpen(false);
   };
 
   async function sendPrompt(prompt, promptImage, topics, sub, id) {
@@ -497,9 +498,10 @@ const Content = () => {
         <span
           className=" flex gap-2 mx-4 items-center text-white font-poppins font-extralight "
           onClick={redirectcourse}
+          // onClick={() => setIsSidebarOpen(false)}
         >
           <FaCaretSquareLeft className="text-lg" />
-          <p className="my-3"> Back to Home</p>
+          <p className="my-3 "> Back to Home</p>
         </span>
         <div className=" font-poppins font-extralight ">
           {topics.map((topic) => (
@@ -557,9 +559,9 @@ const Content = () => {
 
   return (
     <>
-      <Headers />
+      <Headers show={"no"} />
       {!mainTopic ? null : (
-        <div className="flex flex-col h-screen  ">
+        <div className="flex flex-col h-screen bg-gradient-to-r from-[#110038] to-[#08006B] ">
           import {motion} from "framer-motion";
           {isAnimationVisible && (
             <motion.div
@@ -584,18 +586,32 @@ const Content = () => {
           )}
           <div
             onClick={() => setIsOpenDrawer(true)}
-            className="m-5 fixed bottom-8 right-6 z-40  w-32 h-16  text-white  flex justify-center items-center shadow-md "
+            className="m-5 fixed bottom-8 right-6 z-40  lg:w-32  md:w-32  w-24 h-16  text-white  flex justify-center items-center shadow-md "
           >
             <img src={robot} alt="Image" />
           </div>
           <div className="flex flex-row overflow-y-auto mt-12 ">
-            <div className={`w-3/12 bg-[#200098]  overflow-y-auto`}>
+            <div
+              className={`${
+                isSidebarOpen ? "w-full" : "w-0"
+              } md:w-3/12 bg-[#200098] overflow-y-auto transition-all duration-300 relative`}
+            >
               <div className="mt-3">
                 {jsonData &&
                   renderTopicsAndSubtopics(jsonData[mainTopic.toLowerCase()])}
               </div>
             </div>
-            <div className="overflow-y-auto flex-grow flex-col w-9/12 ">
+            <div
+              className={`overflow-y-auto flex-grow flex-col ${
+                isSidebarOpen ? "hidden" : "w-full"
+              } md:w-9/12`}
+            >
+              <button
+                className="md:hidden block p-2 bg-[#200098] text-white fixed top-12 left-0 z-50 w-full"
+                onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+              >
+                ☰ Open Sub Topics
+              </button>
               <nav className="py-5 bg-gradient-to-b from-[#110038] via-[#150243] to-[#150243] border-b border-white flex items-center">
                 <div className="ml-1  flex flex-col w-1/2">
                   <TruncatedText text={mainTopic} len={10} />

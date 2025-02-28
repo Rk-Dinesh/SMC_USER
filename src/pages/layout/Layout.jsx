@@ -109,7 +109,7 @@ const Layout = ({ setIsLoggedIn }) => {
 
   return (
     <div className="">
-      <Headers Menus={Menus} />
+      <Headers Menus={Menus} show={'yes'} />
       <div className="flex w-full h-screen  pt-14 font-poppins   ">
         <div className="w-2/12  bg-[#200098] text-white lg:block md:hidden hidden overflow-auto  ">
           <div className="flex gap-2 items-center pt-3 flex-wrap justify-center ml-2 ">

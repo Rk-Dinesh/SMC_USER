@@ -139,7 +139,7 @@ const SignIn = () => {
                   border: "none",
                   // textAlign: "center",
                   fontSize: "16px",
-                  marginLeft: "10px",
+                  marginLeft: "4px",
                 }}
                 placeholder="9999999999"
                 buttonStyle={{

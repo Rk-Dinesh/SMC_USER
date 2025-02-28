@@ -1,4 +1,4 @@
-export const API = "https://pmc-backend-k5q3.onrender.com"
+export const API = "https://smc-mvc.onrender.com"
 
 export function formatDate(dateString) {
     const date = new Date(dateString);

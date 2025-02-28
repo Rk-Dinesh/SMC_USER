@@ -118,15 +118,8 @@ const ActiveThisMonthCount = courses.filter((course) => {
 
   return (
     <div className=" mx-5 my-6 font-poppins font-extralight">
-      {/* <div className="w-full bg-black">
-        <p className="mx-3 my-5 py-2">
-          Notification Area : We have sent you an verification on your email.
-          Please verify your email to generate by you is incorrect than you can
-          update it from the profile section.
-        </p>
-      </div> */}
       <div className="flex gap-4 flex-wrap ">
-        <div className="lg:w-52 md:w-48 w-48 h-56 bg-black my-1">
+        <div className="lg:w-52 lg:h-56 md:w-48 md:h-56 w-full h-52 bg-black my-1 lg:mx-0 ">
           <p className="mx-3 text-normal text-center mt-6">
             Total Courses Generated{" "}
           </p>
@@ -140,7 +133,7 @@ const ActiveThisMonthCount = courses.filter((course) => {
             View
           </button>
         </div>
-        <div className="lg:w-52 md:w-48 w-48 h-56 bg-black  my-1">
+        <div className="lg:w-52 lg:h-56 md:w-48 md:h-56 w-full h-52 bg-black  my-1">
           <p className="mx-3 text-normal text-center mt-6">
             Video Courses Generated{" "}
           </p>
@@ -156,8 +149,8 @@ const ActiveThisMonthCount = courses.filter((course) => {
             View
           </button>
         </div>
-        <div className="lg:w-52 md:w-48 w-48 h-56 bg-black  my-1">
-          <p className="mx-3 text-normal text-center mt-6">
+        <div className="lg:w-52 lg:h-56 md:w-48 md:h-56 w-full h-52 bg-black  my-1">
+          <p className="mx-3 text-normal text-center mt-6 ">
             Theory Courses Generated{" "}
           </p>
           <p className="text-center lg:text-7xl md:text-7xl text-7xl my-4">
@@ -172,7 +165,7 @@ const ActiveThisMonthCount = courses.filter((course) => {
             View
           </button>
         </div>
-        <div className="lg:w-52 md:w-48 w-48 h-56 bg-black  my-1">
+        <div className="lg:w-52 md:w-48 w-full h-56 bg-black  my-1">
           <p className="mx-3 text-normal text-center mt-8 ">Active Courses </p>
           <p className="text-center lg:text-7xl md:text-7xl text-7xl my-6">
             {courses &&
@@ -185,7 +178,7 @@ const ActiveThisMonthCount = courses.filter((course) => {
             View
           </button>
         </div>
-        <div className="lg:w-52 md:w-48 w-48 h-56 bg-black  my-1">
+        <div className="lg:w-52 md:w-48 w-full h-56 bg-black  my-1">
           <p className="mx-3 text-normal text-center mt-8 ">
             Completed Courses{" "}
           </p>
@@ -202,7 +195,7 @@ const ActiveThisMonthCount = courses.filter((course) => {
         </div>
       </div>
       <div className="grid grid-cols-12 gap-3 ">
-      <div className="my-6 col-span-6">
+      <div className="my-6 lg:col-span-6 md:col-span-6 col-span-12">
         <p className="text-lg my-3">Monthly Activity Progress</p>
         <span>
           <p className="w-3/4 text-end mx-4 text-xl">{coursesThisMonthCount}/{plans}</p>
@@ -235,7 +228,7 @@ const ActiveThisMonthCount = courses.filter((course) => {
           <p className="mx-6 text-sm">Completed Courses this month</p>
         </span>
       </div>
-      <div className='col-span-6 my-6' style={{ width: '100%', height: '300px' }}>
+      <div className='lg:col-span-6 md:col-span-6 col-span-12 my-6' style={{ width: '100%', height: '300px' }}>
         <p  className="text-lg ">Course Type</p>
       <ResponsiveContainer>
         <PieChart>
@@ -271,7 +264,7 @@ const ActiveThisMonthCount = courses.filter((course) => {
       <p className="text-lg mt-2 ">Recent Courses</p>
       <div className="flex gap-4 flex-wrap">
         {courses.slice(-4).map((data, index) => (
-          <div className="lg:w-52 md:w-52 w-48 h-60 bg-black my-8" key={index}>
+          <div className="lg:w-52 md:w-52 w-full h-60 bg-black my-8" key={index}>
             <img src={data.photo} alt="Image" className="w-full h-40" />
             <p className="text-lg mx-2 my-0.5 truncate">{data.mainTopic}</p>
             <p className="text-sm mx-2 my-0.5">{data.type}</p>
