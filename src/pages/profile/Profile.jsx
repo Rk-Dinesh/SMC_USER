@@ -54,7 +54,7 @@ const Profile = () => {
 
   return (
     <>
-      <div className="mx-5 my-6 font-poppins">
+      <div className="mx-5 my-6 font-poppins overflow-hidden">
         <div className=" flex flex-col mx-6">
           <img
             src={userImage?.image ? userImage.image : Profiles}
@@ -76,7 +76,7 @@ const Profile = () => {
               <label htmlFor="fname">First Name</label>
               <input
                 type="text"
-                className=" text-white py-3 pe-0 ps-2 block w-full bg-transparent border-t-transparent border-b border-x-transparent border-b-gray-400 outline-none  disabled:pointer-events-none"
+                className=" text-white py-3 pe-0 ps-2 block lg:w-full md:w-full w-auto bg-transparent border-t-transparent border-b border-x-transparent border-b-gray-400 outline-none  disabled:pointer-events-none"
                 placeholder="John"
                 defaultValue={userData?.fname || ''}
               />
@@ -85,7 +85,7 @@ const Profile = () => {
               <label htmlFor="lname">Last Name</label>
               <input
                 type="text"
-                className="text-white py-3 pe-0 ps-2 block w-full bg-transparent border-t-transparent border-b border-x-transparent border-b-gray-400 outline-none  disabled:pointer-events-none"
+                className="text-white py-3 pe-0 ps-2 block lg:w-full md:w-full w-auto bg-transparent border-t-transparent border-b border-x-transparent border-b-gray-400 outline-none  disabled:pointer-events-none"
                 placeholder="Doe"
                 defaultValue={userData?.lname || ''}
               />
@@ -94,7 +94,7 @@ const Profile = () => {
               <label htmlFor="dob">Date Of Birth</label>
               <input
                 type="text"
-                className="text-white py-3 pe-0 ps-2 block w-full bg-transparent border-t-transparent border-b border-x-transparent border-b-gray-400 outline-none  disabled:pointer-events-none"
+                className="text-white py-3 pe-0 ps-2 block lg:w-full md:w-full w-auto bg-transparent border-t-transparent border-b border-x-transparent border-b-gray-400 outline-none  disabled:pointer-events-none"
                 placeholder="25-12-2024"
                 defaultValue={userData?.dob || ''}
               />
@@ -110,12 +110,12 @@ const Profile = () => {
                 <label htmlFor="email">Email</label>
                 <input
                   type="text"
-                  className=" py-3 pe-0 ps-2 block w-full bg-transparent border-t-transparent border-b border-x-transparent border-b-white outline-none  disabled:pointer-events-none text-white"
+                  className=" py-3 pe-0 ps-2 block lg:w-full md:w-full w-auto bg-transparent border-t-transparent border-b border-x-transparent border-b-white outline-none  disabled:pointer-events-none text-white"
                   placeholder="johndoe@gmail.com"
                   value={localStorage.getItem("email") || ''}
                 />
               </div>
-              <div className="flex justify-center my-2">
+              <div className="flex lg:justify-center md:justify-center justify-start my-2">
                 <button
                   className={` text-base  bg-gradient-to-r from-[#3D03FA] to-[#A71CD2] text-center px-10 py-2.5 my-3 `}
                   onClick={() => setIsModal(true)}
@@ -129,12 +129,12 @@ const Profile = () => {
                 <label htmlFor="phone">Phone</label>
                 <input
                   type="text"
-                  className=" py-3 pe-0 ps-2 block w-full bg-transparent border-t-transparent border-b border-x-transparent border-b-white outline-none  disabled:pointer-events-none text-white"
+                  className=" py-3 pe-0 ps-2 block lg:w-full md:w-full w-auto bg-transparent border-t-transparent border-b border-x-transparent border-b-white outline-none  disabled:pointer-events-none text-white"
                   placeholder="1234567890"
                   value={localStorage.getItem("phone") || ''}
                 />
               </div>
-              <div className="flex justify-center my-2">
+              <div className="flex lg:justify-center md:justify-center justify-start my-2">
                 <button
                   className={` text-base  bg-gradient-to-r from-[#3D03FA] to-[#A71CD2] text-center px-10 py-2.5 my-3 `}
                   onClick={() => setIsPhoneModal(true)}

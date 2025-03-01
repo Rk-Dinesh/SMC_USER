@@ -127,12 +127,13 @@ const SignUp = () => {
               country={"in"}
               value={phone}
               onChange={handlePhoneChange}
-              className="w-full py-1 text-black font-poppins font-extralight rounded-md shadow-md outline-none bg-white "
+              className="w-full py-1 text-black font-poppins font-extralight rounded-md shadow-md outline-none  bg-white"
               inputStyle={{
                 border: "none",
                 textAlign: "",
                 fontSize: "16px",
                 marginLeft: "-2px",
+                width:'250px'
               }}
               placeholder="9999999999"
               buttonStyle={{

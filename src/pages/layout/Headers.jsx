@@ -85,7 +85,7 @@ const Headers = ({ Menus,show }) => {
               </p>
             </div>
           </div>
-          <ul className="flex flex-wrap py-5 max-h-[600px] overflow-y-auto  ">
+          <ul className="flex lg:flex-wrap md:flex-wrap flex-col py-5 max-h-[600px] overflow-y-auto  ">
             {Menus.map((menu, index) => (
               <NavLink to={menu.to} onClick={menu.onClick} key={index}>
                 <li

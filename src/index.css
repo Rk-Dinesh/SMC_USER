@@ -4,6 +4,13 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@layer utilities {
+    .no-scrollbarss::-webkit-scrollbar {
+        display: none;
+    }
+}
+
 ::-webkit-scrollbar{
     width:6px
 }

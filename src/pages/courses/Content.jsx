@@ -607,7 +607,7 @@ const Content = () => {
               } md:w-9/12`}
             >
               <button
-                className="md:hidden block p-2 bg-[#200098] text-white fixed top-12 left-0 z-50 w-full"
+                className="md:hidden block p-2 bg-[#200098] text-white fixed top-12 left-0 z-30 w-full"
                 onClick={() => setIsSidebarOpen(!isSidebarOpen)}
               >
                 ☰ Open Sub Topics
@@ -643,7 +643,7 @@ const Content = () => {
                     <div>
                       <YouTube
                         key={media}
-                        className="mb-5"
+                        className="mb-5 overflow-auto no-scrollbarss"
                         videoId={media}
                         opts={opts}
                       />
