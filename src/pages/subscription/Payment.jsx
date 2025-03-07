@@ -115,7 +115,7 @@ const Payment = () => {
       localStorage.setItem("coursecount", course);
       localStorage.setItem("tax", tax);
       const options = {
-        key: "rzp_live_wYeGLl5JSaiCMw",
+        key: "rzp_live_PwFLUg2b6qe1uU",
         amount: rupees,
         currency: "INR",
         name: "SeekMyCourse",
