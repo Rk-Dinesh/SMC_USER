@@ -81,7 +81,7 @@ const Invoice = () => {
           <hr className="my-2 mx-5" />
           <div className="grid grid-cols-12 gap-3 text-black mx-3">
             <div className="col-span-6 ">
-              <p className="font-normal">Basic Monthly Plan:</p>
+              <p className="font-normal">Basic Plan:</p>
               <p>Qty 1</p>
             </div>
             <div className="col-span-6">

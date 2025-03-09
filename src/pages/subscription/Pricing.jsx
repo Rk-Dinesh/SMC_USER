@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { API } from "../../Host";
 import { useNavigate } from "react-router-dom";
 
+
 const Pricing = () => {
   const [plans, setPlans] = useState([]);
   const navigate = useNavigate();
@@ -30,20 +31,20 @@ const Pricing = () => {
             className="lg:col-span-3 md:col-span-4 col-span-12 font-poppins font-extralight"
             key={index}
           >
-            <div className="flex flex-col p-6 text-center text-white bg-[#000928]   shadow outline-none">
-              <h3 className="mb-2 text-xl">{plan.packagename}</h3>
+            <div className="flex flex-col p-4 text-center text-white bg-[#000928]   shadow outline-none">
+              <h3 className="mb-2 text-xl capitalize">{plan.packagename}</h3>
               <div className="flex justify-center items-baseline my-2">
                 <span className="mr-2 text-2xl font-semibold"> {countryCode === "91"
                   ? `₹${plan.inr}`
                   : `$${plan.price}`}</span>
-                <span className="text-gray-500 dark:text-gray-400">/month</span>
+                <span className="text-gray-500 dark:text-gray-400 capitalize">/{plan.duration}</span>
               </div>
-              <ul role="list" className="mb-8 space-y-1 text-left">
-                <li className="flex items-center space-x-3">
+              <ul role="list" className="mb-8 space-y-1 mx-auto">
+                <li className="flex items-center space-x-3 ">
                   {plan.course === "1" ? (
                     <span>Generate 1 free course</span>
                   ) : (
-                    <span>Generate {plan.course} Courses/month</span>
+                    <span className="capitalize">Generate {plan.course} Courses/{plan.duration}</span>
                   )}
                 </li>
                 <li className="flex items-center space-x-3">
@@ -76,6 +77,7 @@ const Pricing = () => {
                       course:plan.course,
                       planId:plan.stripeId,
                       tax:plan.tax,
+                      duration:plan.duration
                     },
                   });
                 }}

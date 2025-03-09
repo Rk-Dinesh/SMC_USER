@@ -42,6 +42,7 @@ const Success = () => {
         amount: localStorage.getItem("amount"),
         course: localStorage.getItem("coursecount"),
         tax: localStorage.getItem("tax"),
+        duration: localStorage.getItem("duration"),
       };
       const response = await axios.post(
         `${API}/api/usersubscription`,
@@ -59,6 +60,7 @@ const Success = () => {
         localStorage.removeItem("stripe");
         localStorage.removeItem("method");
         localStorage.removeItem("plan");
+        localStorage.removeItem("duration");
       }
       const formDatanotify ={
         user:localStorage.getItem("user"),
@@ -83,6 +85,7 @@ const Success = () => {
             amount: localStorage.getItem("amount"),
             course: localStorage.getItem("coursecount"),
             tax: localStorage.getItem("tax"),
+            duration: localStorage.getItem("duration"),
           };
           const response = await axios.post(
             `${API}/api/usersubscription`,
@@ -104,6 +107,7 @@ const Success = () => {
             localStorage.removeItem("method");
             localStorage.removeItem("plan");
             localStorage.removeItem("subscription");
+            localStorage.removeItem("duration");
           }
           const formDatanotify ={
             user:localStorage.getItem("user"),

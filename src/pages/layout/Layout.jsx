@@ -66,12 +66,17 @@ const Layout = ({ setIsLoggedIn }) => {
   const lastActivePlan =
     activeplans.length > 0 ? activeplans[activeplans.length - 1] : null;
 
-  const calculateExpiryDate = (date) => {
-    const currentDate = new Date(date);
-    currentDate.setDate(currentDate.getDate() + 30);
-    localStorage.setItem("expiry", currentDate);
-    return currentDate;
-  };
+    const calculateExpiryDate = (date,duration) => {
+      const daysToAdd = {
+        monthly: 30,
+        quarterly: 90,
+        halfYearly: 180,
+        annual: 365
+      }[duration] || 30;
+      const currentDate = new Date(date);
+      currentDate.setDate(currentDate.getDate() + daysToAdd);
+      return currentDate;
+    };
 
   const Menus = [
     { title: "Dashboard", icon: dashoard, to: "/dashboard" },
@@ -130,7 +135,7 @@ const Layout = ({ setIsLoggedIn }) => {
               {lastActivePlan ? (
                 <p className="text-xs font-extralight whitespace-nowrap py-1">
                   Subscription Expiry :{" "}
-                  {formatDate1(calculateExpiryDate(lastActivePlan.date))}
+                  {formatDate1(calculateExpiryDate(lastActivePlan.date,lastActivePlan.duration))}
                 </p>
               ) : (
                 <></>

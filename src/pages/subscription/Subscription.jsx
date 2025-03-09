@@ -33,9 +33,15 @@ const Subscription = () => {
   const lastActivePlan =
     activeplans.length > 0 ? activeplans[activeplans.length - 1] : null;
 
-  const calculateExpiryDate = (date) => {
+  const calculateExpiryDate = (date,duration) => {
+    const daysToAdd = {
+      monthly: 30,
+      quarterly: 90,
+      halfYearly: 180,
+      annual: 365
+    }[duration] || 30;
     const currentDate = new Date(date);
-    currentDate.setDate(currentDate.getDate() + 30);
+    currentDate.setDate(currentDate.getDate() + daysToAdd);
     return currentDate;
   };
 
@@ -60,7 +66,7 @@ const Subscription = () => {
             </p>
             <p className="text-normal mx-5">
               Subscription Expiry :{" "}
-              {formatDate1(calculateExpiryDate(lastActivePlan.date))}
+              {formatDate1(calculateExpiryDate(lastActivePlan.date, lastActivePlan.duration))}
             </p>
             <p className="text-normal mx-5 mb-2">
               No Of Courses : {lastActivePlan.course}
@@ -108,7 +114,7 @@ const Subscription = () => {
               <p>Subscription Start Date : {formatDate1(plan.date)}</p>
               <p>
                 Subscription End Date :{" "}
-                {formatDate1(calculateExpiryDate(plan.date))}
+                {formatDate1(calculateExpiryDate(plan.date,plan.duration))}
               </p>
               <p>No Of Courses Generated : {plan.course}</p>
             </div>

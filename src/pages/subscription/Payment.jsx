@@ -37,6 +37,7 @@ const Payment = () => {
   const course = location?.state?.course;
   const planId = location?.state?.planId;
   const tax = location?.state?.tax;
+  const duration = location?.state?.duration;
 
   const {
     register,
@@ -72,6 +73,7 @@ const Payment = () => {
       localStorage.setItem("amount", usd);
       localStorage.setItem("cousecount", course);
       localStorage.setItem("tax", tax);
+      localStorage.setItem("duration", duration);
       window.location.href = res.data.url;
     } catch (error) {
       //DO NOTHING
@@ -114,6 +116,7 @@ const Payment = () => {
       localStorage.setItem("amount", inr);
       localStorage.setItem("coursecount", course);
       localStorage.setItem("tax", tax);
+      localStorage.setItem("duration", duration);
       const options = {
         key: "rzp_live_PwFLUg2b6qe1uU",
         amount: rupees,
