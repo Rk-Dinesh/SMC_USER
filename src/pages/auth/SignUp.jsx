@@ -27,6 +27,11 @@ const SignUp = () => {
   const [processing, setProcessing] = useState(false);
   const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
 
+  const getReferralCode = () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get("ref"); // Returns referral code (e.g., 'sktdjk') or null
+  };
+
   const handlePhoneChange = (value, data) => {
     setPhone(value);
     setCountryCode(data.dialCode);
@@ -41,6 +46,7 @@ const SignUp = () => {
   });
 
   const onSubmit = async (data) => {
+    const referralCode = await getReferralCode();
     if (!isCheckboxChecked) {
       toast.error("Please accept the terms and privacy policies to continue.");
       return;
@@ -55,7 +61,11 @@ const SignUp = () => {
     };
     try {
       setProcessing(true);
-      const response = await axios.post(`${API}/api/usersignup`, formData);
+      const apiEndpoint = referralCode
+        ? `${API}/api/usersignup?ref=${referralCode}`
+        : `${API}/api/usersignup`;
+
+      const response = await axios.post(apiEndpoint, formData);
       if (response.status === 200) {
         const newuser = response.data.userId._id;
         toast.success("Account Created Successfully");
@@ -74,7 +84,18 @@ const SignUp = () => {
       }
     } catch (error) {
       console.log(error);
-      toast.error("User Already exists");
+      let errorMessage = "An unexpected error occurred.";
+      if (
+        error.response &&
+        error.response.data &&
+        error.response.data.message
+      ) {
+        errorMessage = error.response.data.message;
+        console.log(errorMessage);
+      }
+
+      // Show error message in toast
+      toast.error(errorMessage);
       setProcessing(false);
     }
   };
@@ -133,7 +154,7 @@ const SignUp = () => {
                 textAlign: "",
                 fontSize: "16px",
                 marginLeft: "-2px",
-                width:'250px'
+                width: "250px",
               }}
               placeholder="9999999999"
               buttonStyle={{
